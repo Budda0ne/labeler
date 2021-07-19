@@ -4,6 +4,9 @@
   <a href="https://github.com/actions/labeler/actions?query=workflow%3A%22Build+%26+Test%22++">
     <img alt="build and test status" src="https://github.com/actions/labeler/actions/workflows/build_test.yml/badge.svg">
   </a>
+  <a href="https://david-dm.org/actions/labeler">
+    <img alt="dependencies" src="https://status.david-dm.org/gh/actions/labeler.svg">
+  </a>
 </p>
 
 Automatically label new pull requests based on the paths of files being changed.
@@ -60,7 +63,7 @@ label2: example2/*
 ```yml
 # Add 'repo' label to any root file changes
 repo:
-- ./*
+- '*'
 
 # Add '@domain/core' label to any change within the 'core' package
 @domain/core:
@@ -94,7 +97,7 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/labeler@main
+    - uses: actions/labeler@v3
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
 ```
